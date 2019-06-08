@@ -83,7 +83,8 @@ public class PermissionPlugin implements MethodCallHandler, PluginRegistry.Reque
         for (int i = 0; i < permissionList.size(); i++) {
             permissions[i] = getManifestPermission(permissionList.get(i));
         }
-        ActivityCompat.requestPermissions(activity, permissions, 0);
+        if(activity != null && permissions != null)
+            ActivityCompat.requestPermissions(activity, permissions, 0);
     }
 
     private void openSettings() {
